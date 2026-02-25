@@ -2,8 +2,9 @@
 
 @section('content')
 
+    HO
     @include('partials.default.herozone', ['title' => $title, 'surtitle' => $parentPostType, 'visual_herozone' => $visual_herozone, 'tags' => $tags, 'date' => $date])
-    @if($is_private && !$has_access)
+    @if($is_private === 'oui' && !$has_access)
         <div class="container py-20 text-center">
             <h2 class="font-forum text-3xl mb-4">Contenu Privé</h2>
             <p>Veuillez utiliser le lien d'accès envoyé par email pour consulter cette fiche mode.</p>
