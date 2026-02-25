@@ -15,6 +15,7 @@ class Post extends Composer
         'partials.page-header',
         'partials.content',
         'partials.content-*',
+        'components.card-mode',
     ];
     public function with()
     {
