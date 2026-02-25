@@ -29,14 +29,14 @@ add_filter('block_editor_settings_all', function ($settings) {
  * @return void
  */
 add_filter('admin_head', function () {
-    if (! get_current_screen()?->is_block_editor()) {
+    if (!get_current_screen()?->is_block_editor()) {
         return;
     }
 
     $dependencies = json_decode(Vite::content('editor.deps.json'));
 
     foreach ($dependencies as $dependency) {
-        if (! wp_script_is($dependency)) {
+        if (!wp_script_is($dependency)) {
             wp_enqueue_script($dependency);
         }
     }
@@ -76,13 +76,13 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'header-menu' => __( 'Header Menu' ),
-        'header-menu-right' => __( 'Header Menu Right' ),
-        'footer-menu-1' => __( 'Footer Menu 1' ),
-        'footer-menu-2' => __( 'Footer Menu 2' ),
-        'footer-menu-3' => __( 'Footer Menu 3' ),
-        'language' => __( 'Language' ),
-        'social' => __( 'Social' )
+        'header-menu' => __('Header Menu'),
+        'header-menu-right' => __('Header Menu Right'),
+        'footer-menu-1' => __('Footer Menu 1'),
+        'footer-menu-2' => __('Footer Menu 2'),
+        'footer-menu-3' => __('Footer Menu 3'),
+        'language' => __('Language'),
+        'social' => __('Social')
     ]);
 
     /**
@@ -158,4 +158,40 @@ add_action('widgets_init', function () {
         'name' => __('Footer', 'sage'),
         'id' => 'sidebar-footer',
     ] + $config);
+});
+/**
+ * Gestion de l'accès privé pour le CPT "mode"
+ */
+add_action('wp_ajax_send_magic_link', function () {
+    $email = sanitize_email($_POST['email'] ?? '');
+
+    if (!is_email($email)) {
+        wp_send_json_error(['message' => 'Email invalide.']);
+    }
+
+    // Génération d'un token temporaire (simple pour l'exemple)
+    $token = wp_hash($email . time());
+    set_transient('auth_token_' . $token, $email, DAY_IN_SECONDS);
+
+    $link = add_query_arg('access_token', $token, home_url('/mode-lingerie/'));
+    $subject = "Votre accès à l'espace Privé - Lingerie Française";
+    $message = "Cliquez ici pour accéder aux contenus privés : " . $link;
+
+    if (wp_mail($email, $subject, $message)) {
+        wp_send_json_success(['message' => 'Email envoyé ! Vérifiez votre boîte de réception.']);
+    }
+    wp_send_json_error(['message' => 'Erreur lors de l\'envoi.']);
+});
+
+// Action pour intercepter le token dans l'URL et poser le cookie
+add_action('init', function () {
+    if (isset($_GET['access_token'])) {
+        $token = sanitize_text_field($_GET['access_token']);
+        if (get_transient('auth_token_' . $token)) {
+            // Cookie valide 1 semaine
+            setcookie('mode_access', 'active', time() + (7 * 24 * 60 * 60), '/');
+            wp_redirect(remove_query_arg('access_token'));
+            exit;
+        }
+    }
 });
