@@ -15,13 +15,12 @@ class Post extends Composer
         'partials.page-header',
         'partials.content',
         'partials.content-*',
-        'components.card-mode',
-        'single-mode',
+        //'components.card-mode',
     ];
     public function with()
     {
         return [
-            'is_private' => get_field('visibilite', $this->post->ID),
+            'is_private' => get_field('visibilite', get_the_ID()),
             'has_access' => isset($_COOKIE['mode_access']),
         ];
     }

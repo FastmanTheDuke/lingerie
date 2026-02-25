@@ -22,7 +22,7 @@ class Archive extends Composer
             'pushedCards' => $this->getPushedCards(),
             'posts' => $this->getPosts(),
             'tags' => $this->getTags(),
-            'is_private' => get_field('visibilite', $this->post->ID),
+            'is_private' => $this->getVisibilite(),
             'has_access' => isset($_COOKIE['mode_access']),
         ];
     }
@@ -34,7 +34,13 @@ class Archive extends Composer
 
         return $title;
     }
+    public function getVisibilite()
+    {
 
+        $visibilite = get_field('visibilite', get_the_ID());
+
+        return $visibilite;
+    }
     public function getMaxPage()
     {
         return $this->maxPage;
