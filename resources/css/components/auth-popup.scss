@@ -1,0 +1,25 @@
+#auth-popup {
+    transition: opacity 0.3s ease;
+}
+
+#auth-popup.hidden {
+    display: none;
+    opacity: 0;
+}
+
+#auth-popup:not(.hidden) {
+    display: flex;
+    opacity: 1;
+}
+
+#auth-form input::placeholder {
+    color: #9ca3af;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.js-message {
+    min-height: 20px;
+    font-weight: 500;
+}
