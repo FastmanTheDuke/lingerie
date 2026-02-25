@@ -8,8 +8,8 @@
   'has_access' => null,
 ])
 
-<div class="relative ajax-card group private_{{ $is_private }} has_access_{{ $has_access }} {{ $is_private && !$has_access ? 'js-private-post' : '' }}" data-cursor-type="mode" data-cursor-text="{{pll_e('lire')}}" data-cursor-rotate="25">
-  @if($url && (!$is_private || $has_access))
+<div class="relative ajax-card group private_{{ $is_private }} has_access_{{ $has_access }} {{ $is_private==='oui' && !$has_access ? 'js-private-post' : '' }}" data-cursor-type="mode" data-cursor-text="{{pll_e('lire')}}" data-cursor-rotate="25">
+  @if($url && ($is_private!=='oui' || $has_access))
       <a href="{{ $url }}" class="!no-underline">
     @else
       <div class="cursor-pointer js-open-auth-popup">
@@ -28,7 +28,7 @@
       @if($tag)
           <div class="content-type3 text-dark flex gap-2 items-center">
             <div class="w-2 h-2 bg-black rounded-full"></div>
-            @if($is_private && !$has_access)
+            @if($is_private!=='oui' && !$has_access)
                 <div class="restricted-content">
                     <p>Ce contenu est privé. Veuillez vous connecter via le lien envoyé par email.</p>
                     {{-- Afficher ici un résumé ou le flou --}}
@@ -47,7 +47,7 @@
           <p class="content-type2 text-lightGrey">{{ $date }}</p>
       @endif
   </div>
-  @if($url && (!$is_private || $has_access))
+  @if($url && ($is_private!=='oui' || $has_access))
     </a>
   @else
     </div>
