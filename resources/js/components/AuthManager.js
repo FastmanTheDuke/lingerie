@@ -13,13 +13,19 @@ export default {
 
     bindEvents() {
         // Intercepter le clic sur les articles privés
-        this.links.forEach(link => {
-            link.addEventListener('click', (e) => {
+        // Utilisation de la délégation d'événements
+        document.addEventListener('click', (e) => {
+            // On vérifie si l'élément cliqué (ou l'un de ses parents) a la classe
+            const target = e.target.closest('.js-open-auth-popup');
+
+            if (target) {
+                console.log("Clic détecté sur un article privé");
+                // On vérifie le cookie
                 if (!document.cookie.includes('mode_access=')) {
                     e.preventDefault();
                     this.openPopup();
                 }
-            });
+            }
         });
 
         // Fermeture
