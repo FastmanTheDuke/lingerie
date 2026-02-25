@@ -1,5 +1,5 @@
-@import 'swiper/css/bundle' layer(components); 
- 
+@import 'swiper/css/bundle' layer(components);
+
 @import './fonts.css';
 @import "tailwindcss" theme(static);
 @source "../views/";
@@ -24,9 +24,10 @@
     --gutter-y: 125px;
 }
 
-  
+
 
 @import './components/typography.scss';
 @import './components/utils.scss';
 @import './components/icons.scss';
 @import './components/cursor.scss';
+@import './components/auth-popup.scss';
