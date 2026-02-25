@@ -1,0 +1,39 @@
+@font-face {
+  font-display: swap;
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('@fonts/WorkSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'WorkSans-SemiBold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('@fonts/WorkSans-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'WorkSans-Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url('@fonts/WorkSans-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'WorkSans-Light';
+  font-style: normal;
+  font-weight: 300;
+  src: url('@fonts/WorkSans-Light.ttf') format('truetype');
+}
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Forum';
+    font-style: normal;
+    font-weight: 400;
+    src: url('@fonts/Forum-Regular.ttf') format('truetype');
+  }

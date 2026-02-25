@@ -1,0 +1,70 @@
+@layer utilities {
+    .arrow-right {
+        background-image: url('../../images/arrow-left.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .arrow-left {
+        background-image: url('../../images/arrow-right.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .plus {
+        background-image: url('../../images/zoom.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon-instagram {
+        background-image: url('../../images/instagram.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon-x {
+        background-image: url('../../images/x.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon-youtube {
+        background-image: url('../../images/youtube.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon-facebook {
+        background-image: url('../../images/facebook.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon-calendar {
+        background-image: url('../../images/calendar.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon-pin {
+        background-image: url('../../images/pin.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon-play {
+        background-image: url('../../images/play.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+} 

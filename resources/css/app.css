@@ -1,0 +1,32 @@
+@import 'swiper/css/bundle' layer(components); 
+ 
+@import './fonts.css';
+@import "tailwindcss" theme(static);
+@source "../views/";
+@source "../../app/";
+
+@theme {
+    --font-primary: "WorkSans", sans-serif;
+    --font-primary-sb: "WorkSans-SemiBold", sans-serif;
+    --font-primary-m: "WorkSans-Medium", sans-serif;
+    --font-primary-l: "WorkSans-Light", sans-serif;
+    --font-secondary: "Forum", sans-serif;
+
+    --breakpoint-xs: 30rem;
+
+    --color-dark: #1D1D1D;
+    --color-grey: #6D6D6D;
+    --color-FA: #FAFAFA;
+    --color-lightGrey: rgba(29, 29, 29, 0.6);
+    --color-sand: rgba(244, 242, 239, 1);
+
+    --gutter-x: 80px;
+    --gutter-y: 125px;
+}
+
+  
+
+@import './components/typography.scss';
+@import './components/utils.scss';
+@import './components/icons.scss';
+@import './components/cursor.scss';
