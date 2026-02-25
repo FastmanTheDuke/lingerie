@@ -20,7 +20,7 @@ class Post extends Composer
     public function with()
     {
         return [
-            'is_private' => has_term('pro', 'post_tag', get_the_ID()),
+            'is_private' => get_field('visibilite', $this->post->ID),
             'has_access' => isset($_COOKIE['mode_access']),
         ];
     }

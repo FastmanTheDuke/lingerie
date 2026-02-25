@@ -22,7 +22,7 @@ class Archive extends Composer
             'pushedCards' => $this->getPushedCards(),
             'posts' => $this->getPosts(),
             'tags' => $this->getTags(),
-            'is_private' => has_term('pro', 'post_tag', $this->post->ID),
+            'is_private' => get_field('visibilite', $this->post->ID),
             'has_access' => isset($_COOKIE['mode_access']),
         ];
     }
@@ -115,7 +115,7 @@ class Archive extends Composer
                         'dateCustom' => get_field('date_custom', $card['card']->ID),
                         'place' => get_field('place', $card['card']->ID),
                         'isComingSoon' => $this->isComingSoon($card['card']->ID),
-                        'is_private' => has_term('pro', 'post_tag', $card['card']->ID),
+                        'is_private' => get_field('visibilite', $card['card']->ID),
                         'has_access' => isset($_COOKIE['mode_access']),
                     ];
                 }
@@ -185,7 +185,7 @@ class Archive extends Composer
                     'place' => get_field('place', get_the_ID()) ?? '',
                     'isComingSoon' => $this->isComingSoon(get_the_ID()),
                     'isPast' => false,
-                    'is_private' => has_term('pro', 'post_tag', get_the_ID()),
+                    'is_private' => get_field('visibilite', get_the_ID()),
                     'has_access' => isset($_COOKIE['mode_access']),
                 ];
                 $postsList[] = $post;
