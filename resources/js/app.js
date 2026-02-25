@@ -22,13 +22,13 @@ import SingleSidebar from './components/SingleSidebar';
 import Cursor from './components/Cursor';
 import BlocEvents from './components/BlocEvents';
 import BlocVideo from './components/BlocVideo';
-
+import AuthManager from './components/AuthManager';
 document.addEventListener('DOMContentLoaded', () => {
   BrandsSlider.init();
   BrandsLogoSlider.init();
   PartnersSlider.init();
   HerozoneSlider.init();
-  ProductsSlider.init(); 
+  ProductsSlider.init();
   PushedCardListSlider.init();
   TimelineSlider.init();
   GallerySlider.init();
@@ -43,4 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
   Cursor.init();
   BlocVideo.init();
   BlocEvents.init();
+  AuthManager.init();
 });
