@@ -6,7 +6,7 @@ export default {
         if (!this.container) return;
 
         this.form = this.container.querySelector('#auth-form');
-        this.links = document.querySelectorAll('.js-private-link');
+        this.links = document.querySelectorAll('.js-open-auth-popup');
 
         this.bindEvents();
     },
