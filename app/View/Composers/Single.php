@@ -31,6 +31,8 @@ class Single extends Composer
             'files' => $this->getFiles(),
             'links' => $this->getLinks(),
             'hasSidebar' => $this->hasSidebar(),
+            'is_private' => has_term('pro', 'post_tag', get_the_ID()),
+            'has_access' => isset($_COOKIE['mode_access']),
         ];
     }
 

@@ -16,7 +16,13 @@ class Post extends Composer
         'partials.content',
         'partials.content-*',
     ];
-
+    public function with()
+    {
+        return [
+            'is_private' => has_term('pro', 'post_tag', get_the_ID()),
+            'has_access' => isset($_COOKIE['mode_access']),
+        ];
+    }
     /**
      * Retrieve the post title.
      */
@@ -60,7 +66,7 @@ class Post extends Composer
     {
         return wp_link_pages([
             'echo' => 0,
-            'before' => '<p>'.__('Pages:', 'sage'),
+            'before' => '<p>' . __('Pages:', 'sage'),
             'after' => '</p>',
         ]);
     }
